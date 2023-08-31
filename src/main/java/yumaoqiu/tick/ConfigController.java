@@ -20,4 +20,15 @@ public class ConfigController {
         ScheduledTask.setWxKey(key);
         return "OK";
     }
+
+    @RequestMapping("/order")
+    public CreaOrderResponse order(@RequestParam("date") String date, @RequestParam("cdstring") String cdstring) {
+        ScheduledTask scheduledTask = new ScheduledTask();
+
+        CreaOrderResponse creaOrderResponse = scheduledTask.memberOrder(date, cdstring);
+        scheduledTask.getminipaystring(creaOrderResponse.getData2(), creaOrderResponse.getData1());
+        return creaOrderResponse;
+    }
+
+
 }

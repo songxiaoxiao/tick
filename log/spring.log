@@ -1,2 +1,522 @@
-*.log2023-08-30 21:01:03.606  INFO 3282 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
-2023-08-30 21:01:03.640  INFO 3282 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2023-08-31 15:26:13.343  INFO 48782 --- [restartedMain] yumaoqiu.tick.TickApplication            : Starting TickApplication using Java 11.0.10 on winter-3.local with PID 48782 (/Users/winter/Downloads/tick/target/classes started by winter in /Users/winter/Downloads/tick)
+2023-08-31 15:26:13.356  INFO 48782 --- [restartedMain] yumaoqiu.tick.TickApplication            : No active profile set, falling back to default profiles: default
+2023-08-31 15:26:13.502  INFO 48782 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-08-31 15:26:13.502  INFO 48782 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-08-31 15:26:16.893  INFO 48782 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-08-31 15:26:16.928  INFO 48782 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-31 15:26:16.929  INFO 48782 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2023-08-31 15:26:17.194  INFO 48782 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-31 15:26:17.197  INFO 48782 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3693 ms
+2023-08-31 15:26:17.544  INFO 48782 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: private static java.lang.String yumaoqiu.tick.ScheduledTask.wxKeyValue
+2023-08-31 15:26:17.558  INFO 48782 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: private static java.lang.String yumaoqiu.tick.ScheduledTask.cdstringValue
+2023-08-31 15:26:18.257  INFO 48782 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-08-31 15:26:20.045  INFO 48782 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2023-08-31 15:26:20.210  INFO 48782 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-08-31 15:26:20.774  INFO 48782 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-31 15:26:20.867  INFO 48782 --- [restartedMain] yumaoqiu.tick.TickApplication            : Started TickApplication in 8.64 seconds (JVM running for 12.811)
+2023-08-31 15:26:28.645  INFO 48782 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-31 15:26:28.648  INFO 48782 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-08-31 15:26:28.651  INFO 48782 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-08-31 15:26:28.957  INFO 48782 --- [http-nio-8080-exec-2] yumaoqiu.tick.ConfigController           : key: B89C621820717848E98C985CE8AC662B1B701F5257159D020C66637410C01F5CC436A6D929E1253D323B5656AA5E06D49CF4967D9F554CD3611B0D373BEEB178B9138A88C95C59EA3C0A066E27F881916BAA4F03F790485D8E08953C8C69F337CB10245A0E55CDE776FDE2D946A71C66, cdstring: 
+2023-08-31 15:27:32.436  INFO 48782 --- [http-nio-8080-exec-5] yumaoqiu.tick.ScheduledTask              : 请求参数:{datestring=[2023-8-31], cdstring=[Y:2,18:00-19:00,Y:2,18:00-19:00], paytype=[W], guestname=[宋肖肖]}
+2023-08-31 15:27:32.437  INFO 48782 --- [http-nio-8080-exec-5] yumaoqiu.tick.ScheduledTask              : 请求头:[Connection:"keep-alive", Host:"www.koksoft.com", Sec-Fetch-Mode:"cors", Sec-Fetch-Site:"cross-site", content-type:"multipart/form-data", wxkey:"B89C621820717848E98C985CE8AC662B1B701F5257159D020C66637410C01F5CC436A6D929E1253D323B5656AA5E06D49CF4967D9F554CD3611B0D373BEEB178B9138A88C95C59EA3C0A066E27F881916BAA4F03F790485D8E08953C8C69F337CB10245A0E55CDE776FDE2D946A71C66"]
+2023-08-31 15:27:33.686  INFO 48782 --- [http-nio-8080-exec-5] yumaoqiu.tick.ScheduledTask              : 结果：{"success":false,"message":"操作失败！","code":500,"result":{"data1":"","data2":"","data3":""},"timestamp":0}
+2023-08-31 15:27:33.771 ERROR 48782 --- [http-nio-8080-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class com.alibaba.fastjson.JSONObject cannot be cast to class yumaoqiu.tick.Response$CreaOrderResponse (com.alibaba.fastjson.JSONObject is in unnamed module of loader 'app'; yumaoqiu.tick.Response$CreaOrderResponse is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @3be868e3)] with root cause
+
+java.lang.ClassCastException: class com.alibaba.fastjson.JSONObject cannot be cast to class yumaoqiu.tick.Response$CreaOrderResponse (com.alibaba.fastjson.JSONObject is in unnamed module of loader 'app'; yumaoqiu.tick.Response$CreaOrderResponse is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @3be868e3)
+	at yumaoqiu.tick.ScheduledTask.memberOrder(ScheduledTask.java:163) ~[classes/:na]
+	at yumaoqiu.tick.ConfigController.order(ConfigController.java:28) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652) ~[tomcat-embed-core-9.0.43.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.43.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2023-08-31 15:27:43.404  INFO 48782 --- [http-nio-8080-exec-7] yumaoqiu.tick.ScheduledTask              : 请求参数:{datestring=[2023-8-31], cdstring=[Y:2,18:00-19:00,Y:2,18:00-19:00], paytype=[W], guestname=[宋肖肖]}
+2023-08-31 15:27:43.405  INFO 48782 --- [http-nio-8080-exec-7] yumaoqiu.tick.ScheduledTask              : 请求头:[Connection:"keep-alive", Host:"www.koksoft.com", Sec-Fetch-Mode:"cors", Sec-Fetch-Site:"cross-site", content-type:"multipart/form-data", wxkey:"B89C621820717848E98C985CE8AC662B1B701F5257159D020C66637410C01F5CC436A6D929E1253D323B5656AA5E06D49CF4967D9F554CD3611B0D373BEEB178B9138A88C95C59EA3C0A066E27F881916BAA4F03F790485D8E08953C8C69F337CB10245A0E55CDE776FDE2D946A71C66"]
+2023-08-31 15:27:43.831  INFO 48782 --- [http-nio-8080-exec-7] yumaoqiu.tick.ScheduledTask              : 结果：{"success":false,"message":"操作失败！","code":500,"result":{"data1":"","data2":"","data3":""},"timestamp":0}
+2023-08-31 15:28:17.419 ERROR 48782 --- [http-nio-8080-exec-7] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class com.alibaba.fastjson.JSONObject cannot be cast to class yumaoqiu.tick.Response$CreaOrderResponse (com.alibaba.fastjson.JSONObject is in unnamed module of loader 'app'; yumaoqiu.tick.Response$CreaOrderResponse is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @3be868e3)] with root cause
+
+java.lang.ClassCastException: class com.alibaba.fastjson.JSONObject cannot be cast to class yumaoqiu.tick.Response$CreaOrderResponse (com.alibaba.fastjson.JSONObject is in unnamed module of loader 'app'; yumaoqiu.tick.Response$CreaOrderResponse is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @3be868e3)
+	at yumaoqiu.tick.ScheduledTask.memberOrder(ScheduledTask.java:163) ~[classes/:na]
+	at yumaoqiu.tick.ConfigController.order(ConfigController.java:28) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652) ~[tomcat-embed-core-9.0.43.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.43.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2023-08-31 15:28:57.347  INFO 48782 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2023-08-31 15:28:57.348  INFO 48782 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2023-08-31 15:29:06.480  INFO 51943 --- [restartedMain] yumaoqiu.tick.TickApplication            : Starting TickApplication using Java 11.0.10 on winter-3.local with PID 51943 (/Users/winter/Downloads/tick/target/classes started by winter in /Users/winter/Downloads/tick)
+2023-08-31 15:29:06.487  INFO 51943 --- [restartedMain] yumaoqiu.tick.TickApplication            : No active profile set, falling back to default profiles: default
+2023-08-31 15:29:06.653  INFO 51943 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-08-31 15:29:06.654  INFO 51943 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-08-31 15:29:08.424  INFO 51943 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-08-31 15:29:08.441  INFO 51943 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-31 15:29:08.441  INFO 51943 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2023-08-31 15:29:08.537  INFO 51943 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-31 15:29:08.538  INFO 51943 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1882 ms
+2023-08-31 15:29:08.637  INFO 51943 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: private static java.lang.String yumaoqiu.tick.ScheduledTask.wxKeyValue
+2023-08-31 15:29:08.638  INFO 51943 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: private static java.lang.String yumaoqiu.tick.ScheduledTask.cdstringValue
+2023-08-31 15:29:08.928  INFO 51943 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-08-31 15:29:09.196  INFO 51943 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2023-08-31 15:29:09.229  INFO 51943 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-08-31 15:29:09.354  INFO 51943 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-31 15:29:09.397  INFO 51943 --- [restartedMain] yumaoqiu.tick.TickApplication            : Started TickApplication in 3.989 seconds (JVM running for 5.796)
+2023-08-31 15:29:14.222  INFO 51943 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-31 15:29:14.223  INFO 51943 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-08-31 15:29:14.225  INFO 51943 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-08-31 15:29:14.284  INFO 51943 --- [http-nio-8080-exec-2] yumaoqiu.tick.ScheduledTask              : 请求参数:{datestring=[2023-8-31], cdstring=[Y:2,18:00-19:00,Y:2,18:00-19:00], paytype=[W], guestname=[宋肖肖]}
+2023-08-31 15:29:14.286  INFO 51943 --- [http-nio-8080-exec-2] yumaoqiu.tick.ScheduledTask              : 请求头:[Connection:"keep-alive", Host:"www.koksoft.com", Sec-Fetch-Mode:"cors", Sec-Fetch-Site:"cross-site", content-type:"multipart/form-data", wxkey:"null"]
+2023-08-31 15:29:15.066  INFO 51943 --- [http-nio-8080-exec-2] yumaoqiu.tick.ScheduledTask              : 结果：{"success":false,"message":"操作失败！","code":500,"result":{"data1":"wxkey不能为空","data2":"","data3":""},"timestamp":0}
+2023-08-31 15:29:55.481 ERROR 51943 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class com.alibaba.fastjson.JSONObject cannot be cast to class yumaoqiu.tick.Response$CreaOrderResponse (com.alibaba.fastjson.JSONObject is in unnamed module of loader 'app'; yumaoqiu.tick.Response$CreaOrderResponse is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @64edcd24)] with root cause
+
+java.lang.ClassCastException: class com.alibaba.fastjson.JSONObject cannot be cast to class yumaoqiu.tick.Response$CreaOrderResponse (com.alibaba.fastjson.JSONObject is in unnamed module of loader 'app'; yumaoqiu.tick.Response$CreaOrderResponse is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @64edcd24)
+	at yumaoqiu.tick.ScheduledTask.memberOrder(ScheduledTask.java:163) ~[classes/:na]
+	at yumaoqiu.tick.ConfigController.order(ConfigController.java:28) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652) ~[tomcat-embed-core-9.0.43.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.43.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2023-08-31 15:30:09.448  INFO 51943 --- [http-nio-8080-exec-3] yumaoqiu.tick.ScheduledTask              : 请求参数:{datestring=[2023-8-31], cdstring=[Y:2,18:00-19:00,Y:2,18:00-19:00], paytype=[W], guestname=[宋肖肖]}
+2023-08-31 15:30:09.448  INFO 51943 --- [http-nio-8080-exec-3] yumaoqiu.tick.ScheduledTask              : 请求头:[Connection:"keep-alive", Host:"www.koksoft.com", Sec-Fetch-Mode:"cors", Sec-Fetch-Site:"cross-site", content-type:"multipart/form-data", wxkey:"null"]
+2023-08-31 15:30:09.631  INFO 51943 --- [http-nio-8080-exec-3] yumaoqiu.tick.ScheduledTask              : 结果：{"success":false,"message":"操作失败！","code":500,"result":{"data1":"wxkey不能为空","data2":"","data3":""},"timestamp":0}
+2023-08-31 15:30:10.529 ERROR 51943 --- [http-nio-8080-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class com.alibaba.fastjson.JSONObject cannot be cast to class yumaoqiu.tick.Response$CreaOrderResponse (com.alibaba.fastjson.JSONObject is in unnamed module of loader 'app'; yumaoqiu.tick.Response$CreaOrderResponse is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @64edcd24)] with root cause
+
+java.lang.ClassCastException: class com.alibaba.fastjson.JSONObject cannot be cast to class yumaoqiu.tick.Response$CreaOrderResponse (com.alibaba.fastjson.JSONObject is in unnamed module of loader 'app'; yumaoqiu.tick.Response$CreaOrderResponse is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @64edcd24)
+	at yumaoqiu.tick.ScheduledTask.memberOrder(ScheduledTask.java:163) ~[classes/:na]
+	at yumaoqiu.tick.ConfigController.order(ConfigController.java:28) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652) ~[tomcat-embed-core-9.0.43.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.43.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2023-08-31 15:35:05.319  INFO 51943 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2023-08-31 15:35:05.325  INFO 51943 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2023-08-31 15:36:04.271  INFO 59381 --- [restartedMain] yumaoqiu.tick.TickApplication            : Starting TickApplication using Java 11.0.10 on winter-3.local with PID 59381 (/Users/winter/Downloads/tick/target/classes started by winter in /Users/winter/Downloads/tick)
+2023-08-31 15:36:04.279  INFO 59381 --- [restartedMain] yumaoqiu.tick.TickApplication            : No active profile set, falling back to default profiles: default
+2023-08-31 15:36:04.428  INFO 59381 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-08-31 15:36:04.428  INFO 59381 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-08-31 15:36:06.192  INFO 59381 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-08-31 15:36:06.215  INFO 59381 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-31 15:36:06.215  INFO 59381 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2023-08-31 15:36:06.308  INFO 59381 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-31 15:36:06.308  INFO 59381 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1878 ms
+2023-08-31 15:36:06.396  INFO 59381 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: private static java.lang.String yumaoqiu.tick.ScheduledTask.wxKeyValue
+2023-08-31 15:36:06.397  INFO 59381 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: private static java.lang.String yumaoqiu.tick.ScheduledTask.cdstringValue
+2023-08-31 15:36:06.674  INFO 59381 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-08-31 15:36:06.971  INFO 59381 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2023-08-31 15:36:06.996  INFO 59381 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-08-31 15:36:07.087  INFO 59381 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-31 15:36:07.114  INFO 59381 --- [restartedMain] yumaoqiu.tick.TickApplication            : Started TickApplication in 4.0 seconds (JVM running for 5.698)
+2023-08-31 15:36:14.283  INFO 59381 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-31 15:36:14.285  INFO 59381 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-08-31 15:36:14.287  INFO 59381 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-08-31 15:36:14.337  INFO 59381 --- [http-nio-8080-exec-2] yumaoqiu.tick.ConfigController           : key: B89C621820717848E98C985CE8AC662B1B701F5257159D020C66637410C01F5CC436A6D929E1253D323B5656AA5E06D49CF4967D9F554CD3611B0D373BEEB178B9138A88C95C59EA3C0A066E27F881916BAA4F03F790485D8E08953C8C69F337CB10245A0E55CDE776FDE2D946A71C66, cdstring: 
+2023-08-31 15:36:22.892  INFO 59381 --- [http-nio-8080-exec-3] yumaoqiu.tick.ScheduledTask              : 请求参数:{datestring=[2023-8-31], cdstring=[Y:2,18:00-19:00], paytype=[W], guestname=[宋肖肖]}
+2023-08-31 15:36:22.893  INFO 59381 --- [http-nio-8080-exec-3] yumaoqiu.tick.ScheduledTask              : 请求头:[Connection:"keep-alive", Host:"www.koksoft.com", Sec-Fetch-Mode:"cors", Sec-Fetch-Site:"cross-site", content-type:"multipart/form-data", wxkey:"B89C621820717848E98C985CE8AC662B1B701F5257159D020C66637410C01F5CC436A6D929E1253D323B5656AA5E06D49CF4967D9F554CD3611B0D373BEEB178B9138A88C95C59EA3C0A066E27F881916BAA4F03F790485D8E08953C8C69F337CB10245A0E55CDE776FDE2D946A71C66"]
+2023-08-31 15:36:26.352  INFO 59381 --- [http-nio-8080-exec-3] yumaoqiu.tick.ScheduledTask              : 结果：{"success":true,"message":"操作成功","code":200,"result":{"data1":"W23083100073","data2":"60","data3":""},"timestamp":0}
+2023-08-31 15:36:32.198 ERROR 59381 --- [http-nio-8080-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class com.alibaba.fastjson.JSONObject cannot be cast to class yumaoqiu.tick.CreaOrderResponse (com.alibaba.fastjson.JSONObject is in unnamed module of loader 'app'; yumaoqiu.tick.CreaOrderResponse is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @3be868e3)] with root cause
+
+java.lang.ClassCastException: class com.alibaba.fastjson.JSONObject cannot be cast to class yumaoqiu.tick.CreaOrderResponse (com.alibaba.fastjson.JSONObject is in unnamed module of loader 'app'; yumaoqiu.tick.CreaOrderResponse is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @3be868e3)
+	at yumaoqiu.tick.ScheduledTask.memberOrder(ScheduledTask.java:163) ~[classes/:na]
+	at yumaoqiu.tick.ConfigController.order(ConfigController.java:28) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652) ~[tomcat-embed-core-9.0.43.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.43.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2023-08-31 15:37:04.035  INFO 59381 --- [http-nio-8080-exec-5] yumaoqiu.tick.ScheduledTask              : 请求参数:{datestring=[2023-8-31], cdstring=[Y:2,18:00-19:00], paytype=[W], guestname=[宋肖肖]}
+2023-08-31 15:37:04.036  INFO 59381 --- [http-nio-8080-exec-5] yumaoqiu.tick.ScheduledTask              : 请求头:[Connection:"keep-alive", Host:"www.koksoft.com", Sec-Fetch-Mode:"cors", Sec-Fetch-Site:"cross-site", content-type:"multipart/form-data", wxkey:"B89C621820717848E98C985CE8AC662B1B701F5257159D020C66637410C01F5CC436A6D929E1253D323B5656AA5E06D49CF4967D9F554CD3611B0D373BEEB178B9138A88C95C59EA3C0A066E27F881916BAA4F03F790485D8E08953C8C69F337CB10245A0E55CDE776FDE2D946A71C66"]
+2023-08-31 15:37:04.229  INFO 59381 --- [http-nio-8080-exec-5] yumaoqiu.tick.ScheduledTask              : 结果：{"success":false,"message":"操作失败！","code":500,"result":{"data1":"请勿重复提交。","data2":"","data3":""},"timestamp":0}
+2023-08-31 15:50:51.052 ERROR 59381 --- [http-nio-8080-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class com.alibaba.fastjson.JSONObject cannot be cast to class yumaoqiu.tick.CreaOrderResponse (com.alibaba.fastjson.JSONObject is in unnamed module of loader 'app'; yumaoqiu.tick.CreaOrderResponse is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @3be868e3)] with root cause
+
+java.lang.ClassCastException: class com.alibaba.fastjson.JSONObject cannot be cast to class yumaoqiu.tick.CreaOrderResponse (com.alibaba.fastjson.JSONObject is in unnamed module of loader 'app'; yumaoqiu.tick.CreaOrderResponse is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @3be868e3)
+	at yumaoqiu.tick.ScheduledTask.memberOrder(ScheduledTask.java:163) ~[classes/:na]
+	at yumaoqiu.tick.ConfigController.order(ConfigController.java:28) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652) ~[tomcat-embed-core-9.0.43.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.43.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2023-08-31 15:50:54.527  INFO 59381 --- [http-nio-8080-exec-7] yumaoqiu.tick.ScheduledTask              : 请求参数:{datestring=[2023-8-31], cdstring=[Y:2,18:00-19:00], paytype=[W], guestname=[宋肖肖]}
+2023-08-31 15:50:54.528  INFO 59381 --- [http-nio-8080-exec-7] yumaoqiu.tick.ScheduledTask              : 请求头:[Connection:"keep-alive", Host:"www.koksoft.com", Sec-Fetch-Mode:"cors", Sec-Fetch-Site:"cross-site", content-type:"multipart/form-data", wxkey:"B89C621820717848E98C985CE8AC662B1B701F5257159D020C66637410C01F5CC436A6D929E1253D323B5656AA5E06D49CF4967D9F554CD3611B0D373BEEB178B9138A88C95C59EA3C0A066E27F881916BAA4F03F790485D8E08953C8C69F337CB10245A0E55CDE776FDE2D946A71C66"]
+2023-08-31 15:50:55.647  INFO 59381 --- [http-nio-8080-exec-7] yumaoqiu.tick.ScheduledTask              : 结果：{"success":false,"message":"操作失败！","code":500,"result":{"data1":"请勿重复提交。","data2":"","data3":""},"timestamp":0}
+2023-08-31 15:50:55.649 ERROR 59381 --- [http-nio-8080-exec-7] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class com.alibaba.fastjson.JSONObject cannot be cast to class yumaoqiu.tick.CreaOrderResponse (com.alibaba.fastjson.JSONObject is in unnamed module of loader 'app'; yumaoqiu.tick.CreaOrderResponse is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @3be868e3)] with root cause
+
+java.lang.ClassCastException: class com.alibaba.fastjson.JSONObject cannot be cast to class yumaoqiu.tick.CreaOrderResponse (com.alibaba.fastjson.JSONObject is in unnamed module of loader 'app'; yumaoqiu.tick.CreaOrderResponse is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @3be868e3)
+	at yumaoqiu.tick.ScheduledTask.memberOrder(ScheduledTask.java:163) ~[classes/:na]
+	at yumaoqiu.tick.ConfigController.order(ConfigController.java:28) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652) ~[tomcat-embed-core-9.0.43.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.4.jar:5.3.4]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.43.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.4.jar:5.3.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2023-08-31 15:51:00.999  INFO 59381 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2023-08-31 15:51:01.003  INFO 59381 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2023-08-31 15:51:08.408  INFO 75275 --- [restartedMain] yumaoqiu.tick.TickApplication            : Starting TickApplication using Java 11.0.10 on winter-3.local with PID 75275 (/Users/winter/Downloads/tick/target/classes started by winter in /Users/winter/Downloads/tick)
+2023-08-31 15:51:08.412  INFO 75275 --- [restartedMain] yumaoqiu.tick.TickApplication            : No active profile set, falling back to default profiles: default
+2023-08-31 15:51:08.494  INFO 75275 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-08-31 15:51:08.495  INFO 75275 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-08-31 15:51:09.444  INFO 75275 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-08-31 15:51:09.455  INFO 75275 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-31 15:51:09.455  INFO 75275 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2023-08-31 15:51:09.514  INFO 75275 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-31 15:51:09.514  INFO 75275 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1018 ms
+2023-08-31 15:51:09.567  INFO 75275 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: private static java.lang.String yumaoqiu.tick.ScheduledTask.wxKeyValue
+2023-08-31 15:51:09.567  INFO 75275 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: private static java.lang.String yumaoqiu.tick.ScheduledTask.cdstringValue
+2023-08-31 15:51:09.720  INFO 75275 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-08-31 15:51:09.866  INFO 75275 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2023-08-31 15:51:09.884  INFO 75275 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-08-31 15:51:09.942  INFO 75275 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-31 15:51:09.962  INFO 75275 --- [restartedMain] yumaoqiu.tick.TickApplication            : Started TickApplication in 2.194 seconds (JVM running for 3.547)
+2023-08-31 15:51:38.741  INFO 75275 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-31 15:51:38.742  INFO 75275 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-08-31 15:51:38.743  INFO 75275 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-08-31 15:51:38.770  INFO 75275 --- [http-nio-8080-exec-2] yumaoqiu.tick.ConfigController           : key: B89C621820717848E98C985CE8AC662B1B701F5257159D020C66637410C01F5CC436A6D929E1253D323B5656AA5E06D49CF4967D9F554CD3611B0D373BEEB178B9138A88C95C59EA3C0A066E27F881916BAA4F03F790485D8E08953C8C69F337CB10245A0E55CDE776FDE2D946A71C66, cdstring: 
+2023-08-31 15:51:40.420  INFO 75275 --- [http-nio-8080-exec-3] yumaoqiu.tick.ScheduledTask              : 请求参数:{datestring=[2023-8-31], cdstring=[Y:2,18:00-19:00], paytype=[W], guestname=[宋肖肖]}
+2023-08-31 15:51:40.421  INFO 75275 --- [http-nio-8080-exec-3] yumaoqiu.tick.ScheduledTask              : 请求头:[Connection:"keep-alive", Host:"www.koksoft.com", Sec-Fetch-Mode:"cors", Sec-Fetch-Site:"cross-site", content-type:"multipart/form-data", wxkey:"B89C621820717848E98C985CE8AC662B1B701F5257159D020C66637410C01F5CC436A6D929E1253D323B5656AA5E06D49CF4967D9F554CD3611B0D373BEEB178B9138A88C95C59EA3C0A066E27F881916BAA4F03F790485D8E08953C8C69F337CB10245A0E55CDE776FDE2D946A71C66"]
+2023-08-31 15:51:40.931  INFO 75275 --- [http-nio-8080-exec-3] yumaoqiu.tick.ScheduledTask              : 结果：{"success":false,"message":"操作失败！","code":500,"result":{"data1":"请勿重复提交。","data2":"","data3":""},"timestamp":0}
+2023-08-31 15:51:40.991  INFO 75275 --- [http-nio-8080-exec-3] yumaoqiu.tick.ScheduledTask              : 请求头:[wxkey:"B89C621820717848E98C985CE8AC662B1B701F5257159D020C66637410C01F5CC436A6D929E1253D323B5656AA5E06D49CF4967D9F554CD3611B0D373BEEB178B9138A88C95C59EA3C0A066E27F881916BAA4F03F790485D8E08953C8C69F337CB10245A0E55CDE776FDE2D946A71C66"]
+2023-08-31 15:51:40.992  INFO 75275 --- [http-nio-8080-exec-3] yumaoqiu.tick.ScheduledTask              : 请求参数:<[wxkey:"B89C621820717848E98C985CE8AC662B1B701F5257159D020C66637410C01F5CC436A6D929E1253D323B5656AA5E06D49CF4967D9F554CD3611B0D373BEEB178B9138A88C95C59EA3C0A066E27F881916BAA4F03F790485D8E08953C8C69F337CB10245A0E55CDE776FDE2D946A71C66"]>
+2023-08-31 15:51:41.024  INFO 75275 --- [http-nio-8080-exec-3] yumaoqiu.tick.ScheduledTask              : 结果：{"success":false,"message":"操作失败,系统错误","code":500,"result":null,"timestamp":0}
+2023-08-31 15:53:26.893  INFO 75275 --- [http-nio-8080-exec-6] yumaoqiu.tick.ScheduledTask              : 请求参数:{datestring=[2023-8-31], cdstring=[Y:2,19:00-20:00], paytype=[W], guestname=[宋肖肖]}
+2023-08-31 15:53:26.893  INFO 75275 --- [http-nio-8080-exec-6] yumaoqiu.tick.ScheduledTask              : 请求头:[Connection:"keep-alive", Host:"www.koksoft.com", Sec-Fetch-Mode:"cors", Sec-Fetch-Site:"cross-site", content-type:"multipart/form-data", wxkey:"B89C621820717848E98C985CE8AC662B1B701F5257159D020C66637410C01F5CC436A6D929E1253D323B5656AA5E06D49CF4967D9F554CD3611B0D373BEEB178B9138A88C95C59EA3C0A066E27F881916BAA4F03F790485D8E08953C8C69F337CB10245A0E55CDE776FDE2D946A71C66"]
+2023-08-31 15:53:27.192  INFO 75275 --- [http-nio-8080-exec-6] yumaoqiu.tick.ScheduledTask              : 结果：{"success":false,"message":"操作失败！","code":500,"result":{"data1":"羽毛球,编号:2,因为已被使用，无法预订！;","data2":"","data3":""},"timestamp":0}
+2023-08-31 15:53:37.418  INFO 75275 --- [http-nio-8080-exec-6] yumaoqiu.tick.ScheduledTask              : 请求头:[wxkey:"B89C621820717848E98C985CE8AC662B1B701F5257159D020C66637410C01F5CC436A6D929E1253D323B5656AA5E06D49CF4967D9F554CD3611B0D373BEEB178B9138A88C95C59EA3C0A066E27F881916BAA4F03F790485D8E08953C8C69F337CB10245A0E55CDE776FDE2D946A71C66"]
+2023-08-31 15:53:37.419  INFO 75275 --- [http-nio-8080-exec-6] yumaoqiu.tick.ScheduledTask              : 请求参数:<[wxkey:"B89C621820717848E98C985CE8AC662B1B701F5257159D020C66637410C01F5CC436A6D929E1253D323B5656AA5E06D49CF4967D9F554CD3611B0D373BEEB178B9138A88C95C59EA3C0A066E27F881916BAA4F03F790485D8E08953C8C69F337CB10245A0E55CDE776FDE2D946A71C66"]>
+2023-08-31 15:53:37.553  INFO 75275 --- [http-nio-8080-exec-6] yumaoqiu.tick.ScheduledTask              : 结果：{"success":false,"message":"操作失败,系统错误","code":500,"result":null,"timestamp":0}
+2023-08-31 15:53:45.854  INFO 75275 --- [http-nio-8080-exec-7] yumaoqiu.tick.ScheduledTask              : 请求参数:{datestring=[2023-8-31], cdstring=[Y:4,19:00-20:00], paytype=[W], guestname=[宋肖肖]}
+2023-08-31 15:53:45.854  INFO 75275 --- [http-nio-8080-exec-7] yumaoqiu.tick.ScheduledTask              : 请求头:[Connection:"keep-alive", Host:"www.koksoft.com", Sec-Fetch-Mode:"cors", Sec-Fetch-Site:"cross-site", content-type:"multipart/form-data", wxkey:"B89C621820717848E98C985CE8AC662B1B701F5257159D020C66637410C01F5CC436A6D929E1253D323B5656AA5E06D49CF4967D9F554CD3611B0D373BEEB178B9138A88C95C59EA3C0A066E27F881916BAA4F03F790485D8E08953C8C69F337CB10245A0E55CDE776FDE2D946A71C66"]
+2023-08-31 15:53:46.156  INFO 75275 --- [http-nio-8080-exec-7] yumaoqiu.tick.ScheduledTask              : 结果：{"success":false,"message":"操作失败！","code":500,"result":{"data1":"羽毛球,编号:4,因为已被使用，无法预订！;","data2":"","data3":""},"timestamp":0}
+2023-08-31 15:53:50.518  INFO 75275 --- [http-nio-8080-exec-7] yumaoqiu.tick.ScheduledTask              : 请求头:[wxkey:"B89C621820717848E98C985CE8AC662B1B701F5257159D020C66637410C01F5CC436A6D929E1253D323B5656AA5E06D49CF4967D9F554CD3611B0D373BEEB178B9138A88C95C59EA3C0A066E27F881916BAA4F03F790485D8E08953C8C69F337CB10245A0E55CDE776FDE2D946A71C66"]
+2023-08-31 15:53:50.518  INFO 75275 --- [http-nio-8080-exec-7] yumaoqiu.tick.ScheduledTask              : 请求参数:<[wxkey:"B89C621820717848E98C985CE8AC662B1B701F5257159D020C66637410C01F5CC436A6D929E1253D323B5656AA5E06D49CF4967D9F554CD3611B0D373BEEB178B9138A88C95C59EA3C0A066E27F881916BAA4F03F790485D8E08953C8C69F337CB10245A0E55CDE776FDE2D946A71C66"]>
+2023-08-31 15:53:50.564  INFO 75275 --- [http-nio-8080-exec-7] yumaoqiu.tick.ScheduledTask              : 结果：{"success":false,"message":"操作失败,系统错误","code":500,"result":null,"timestamp":0}
+2023-08-31 15:54:13.958  INFO 75275 --- [http-nio-8080-exec-8] yumaoqiu.tick.ScheduledTask              : 请求参数:{datestring=[2023-09-01], cdstring=[Y:4,17:00-18:00], paytype=[W], guestname=[宋肖肖]}
+2023-08-31 15:54:13.959  INFO 75275 --- [http-nio-8080-exec-8] yumaoqiu.tick.ScheduledTask              : 请求头:[Connection:"keep-alive", Host:"www.koksoft.com", Sec-Fetch-Mode:"cors", Sec-Fetch-Site:"cross-site", content-type:"multipart/form-data", wxkey:"B89C621820717848E98C985CE8AC662B1B701F5257159D020C66637410C01F5CC436A6D929E1253D323B5656AA5E06D49CF4967D9F554CD3611B0D373BEEB178B9138A88C95C59EA3C0A066E27F881916BAA4F03F790485D8E08953C8C69F337CB10245A0E55CDE776FDE2D946A71C66"]
+2023-08-31 15:54:14.264  INFO 75275 --- [http-nio-8080-exec-8] yumaoqiu.tick.ScheduledTask              : 结果：{"success":true,"message":"操作成功","code":200,"result":{"data1":"W23083100077","data2":"60","data3":""},"timestamp":0}
+2023-08-31 15:54:19.371  INFO 75275 --- [http-nio-8080-exec-8] yumaoqiu.tick.ScheduledTask              : 请求头:[wxkey:"B89C621820717848E98C985CE8AC662B1B701F5257159D020C66637410C01F5CC436A6D929E1253D323B5656AA5E06D49CF4967D9F554CD3611B0D373BEEB178B9138A88C95C59EA3C0A066E27F881916BAA4F03F790485D8E08953C8C69F337CB10245A0E55CDE776FDE2D946A71C66"]
+2023-08-31 15:54:19.372  INFO 75275 --- [http-nio-8080-exec-8] yumaoqiu.tick.ScheduledTask              : 请求参数:<[wxkey:"B89C621820717848E98C985CE8AC662B1B701F5257159D020C66637410C01F5CC436A6D929E1253D323B5656AA5E06D49CF4967D9F554CD3611B0D373BEEB178B9138A88C95C59EA3C0A066E27F881916BAA4F03F790485D8E08953C8C69F337CB10245A0E55CDE776FDE2D946A71C66"]>
+2023-08-31 15:54:19.967  INFO 75275 --- [http-nio-8080-exec-8] yumaoqiu.tick.ScheduledTask              : 结果：{"success":true,"message":"操作成功","code":200,"result":{"data0":true,"data1":"{\"appId\":\"wx62ed5d02cd57f267\",\"nonceStr\":\"faa5efd007264ec198d462d4cdf726f7\",\"wxpackage\":\"prepay_id=wx311554198676473925cf838daa634e0000\",\"paySign\":\"B612B1BD97B6FA44820EBFB486F2A5E4\",\"signType\":\"MD5\",\"timeStamp\":\"1693468460\"}"},"timestamp":0}
