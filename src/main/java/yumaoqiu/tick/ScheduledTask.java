@@ -80,33 +80,14 @@ public class ScheduledTask {
         ScheduledTask.guestname = guestname;
     }
 
-    @Scheduled(cron = "00 10 16 * * 4", zone = "Asia/Shanghai")
-    public void test() {
-        log.info("========定时抢羽毛球场地 begin==========");
-
-
-        //  获取当前日期+2天
-        DateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd");
-        String date2 = df.format(System.currentTimeMillis() + 2 * 24 * 60 * 60 * 1000);
-
-        CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_3_4);
-        getminipaystring(creaOrderResponse.getData2(), creaOrderResponse.getData1());
-
-
-        CreaOrderResponse creaOrderResponse2 = memberOrder(date2, cdstringy4_4_5);
-        getminipaystring(creaOrderResponse2.getData2(), creaOrderResponse2.getData1());
-
-        log.info("========定时抢羽毛球场地 end==========");
-    }
-
-    /**
-     * 每周四早晨6点执行curl请求抢周六三点到五点的羽毛球场地
-     *
-     * @author: winter
-     * @method: task
-     * @date: 2023/8/30 11:27 AM
-     * @return
-     */
+        /**
+         * 每周四早晨6点执行curl请求抢周六三点到五点的羽毛球场地
+         *
+         * @author: winter
+         * @method: task
+         * @date: 2023/8/30 11:27 AM
+         * @return
+         */
     @Scheduled(cron = "00 00 06 * * 4", zone = "Asia/Shanghai")
     public void task() {
         log.info("========定时抢羽毛球场地 begin==========");
@@ -126,6 +107,13 @@ public class ScheduledTask {
         log.info("========定时抢羽毛球场地 end==========");
     }
 
+
+
+
+    @Scheduled(cron = "00 33 17 * * 5", zone = "Asia/Shanghai")
+    public void test() {
+        log.info("========定时抢羽毛球场地 test==========");
+    }
 
     /**
      * 每周无早晨6点执行curl请求抢周天10点到12点的羽毛球场地
