@@ -42,8 +42,8 @@ public class ScheduledTask {
     private static String getminipaystring = "https://www.koksoft.com/booking/memberorder";
 
     private static String datestring = "2023-09-02";
-    private static String cdstringy4_3_4 = "Y:4,15:00-16:00";
-    private static String cdstringy4_4_5 = "Y:4,16:00-17:00";
+    private static String cdstringy4_3_4 = "Y:4,09:00-10:00";
+    private static String cdstringy4_4_5 = "Y:4,10:00-11:00";
     private static String cdstringy4_10_11 = "Y:4,10:00-11:00";
     private static String cdstringy4_11_12 = "Y:4,11:00-12:00";
     private static String phone = "18516313142";
