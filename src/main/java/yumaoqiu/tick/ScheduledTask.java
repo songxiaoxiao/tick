@@ -135,14 +135,114 @@ public class ScheduledTask {
         CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_10_11);
         getminipaystring(creaOrderResponse.getData2(), creaOrderResponse.getData1());
 
+        log.info("========定时抢羽毛球场地 end==========");
+    }
+    /**
+     * 每周无早晨6点执行curl请求抢周天10点到12点的羽毛球场地
+     *
+     * @author: winter
+     * @method: task
+     * @date: 2023/8/30 11:27 AM
+     * @return
+     */
+    @Scheduled(cron = "00 00 06 * * 5", zone = "Asia/Shanghai")
+    public void task3() {
+        log.info("========定时抢羽毛球场地 begin==========");
+
+        //  获取当前日期+2天
+        DateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd");
+        String date2 = df.format(System.currentTimeMillis() + 2 * 24 * 60 * 60 * 1000);
 
         CreaOrderResponse creaOrderResponse2 = memberOrder(date2, cdstringy4_11_12);
         getminipaystring(creaOrderResponse2.getData2(), creaOrderResponse2.getData1());
 
         log.info("========定时抢羽毛球场地 end==========");
     }
+    /**
+     * 每周无早晨6点执行curl请求抢周天10点到12点的羽毛球场地
+     *
+     * @author: winter
+     * @method: task
+     * @date: 2023/8/30 11:27 AM
+     * @return
+     */
+    @Scheduled(cron = "00 00 06 * * 5", zone = "Asia/Shanghai")
+    public void task4() {
+        log.info("========定时抢羽毛球场地 begin==========");
 
+        //  获取当前日期+2天
+        DateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd");
+        String date2 = df.format(System.currentTimeMillis() + 2 * 24 * 60 * 60 * 1000);
 
+        CreaOrderResponse creaOrderResponse2 = memberOrder(date2, "Y:5,10:00-11:00");
+        getminipaystring(creaOrderResponse2.getData2(), creaOrderResponse2.getData1());
+
+        log.info("========定时抢羽毛球场地 end==========");
+    }
+    /**
+     * 每周无早晨6点执行curl请求抢周天10点到12点的羽毛球场地
+     *
+     * @author: winter
+     * @method: task
+     * @date: 2023/8/30 11:27 AM
+     * @return
+     */
+    @Scheduled(cron = "00 00 06 * * 5", zone = "Asia/Shanghai")
+    public void task5() {
+        log.info("========定时抢羽毛球场地 begin==========");
+
+        //  获取当前日期+2天
+        DateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd");
+        String date2 = df.format(System.currentTimeMillis() + 2 * 24 * 60 * 60 * 1000);
+
+        CreaOrderResponse creaOrderResponse2 = memberOrder(date2, "Y:5,11:00-12:00");
+        getminipaystring(creaOrderResponse2.getData2(), creaOrderResponse2.getData1());
+
+        log.info("========定时抢羽毛球场地 end==========");
+    }
+
+    /**
+     * 每周无早晨6点执行curl请求抢周天10点到12点的羽毛球场地
+     *
+     * @author: winter
+     * @method: task
+     * @date: 2023/8/30 11:27 AM
+     * @return
+     */
+    @Scheduled(cron = "00 00 06 * * 5", zone = "Asia/Shanghai")
+    public void task7() {
+        log.info("========定时抢羽毛球场地 begin==========");
+
+        //  获取当前日期+2天
+        DateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd");
+        String date2 = df.format(System.currentTimeMillis() + 2 * 24 * 60 * 60 * 1000);
+
+        CreaOrderResponse creaOrderResponse2 = memberOrder(date2, "Y:6,10:00-11:00");
+        getminipaystring(creaOrderResponse2.getData2(), creaOrderResponse2.getData1());
+
+        log.info("========定时抢羽毛球场地 end==========");
+    }
+    /**
+     * 每周无早晨6点执行curl请求抢周天10点到12点的羽毛球场地
+     *
+     * @author: winter
+     * @method: task
+     * @date: 2023/8/30 11:27 AM
+     * @return
+     */
+    @Scheduled(cron = "00 00 06 * * 5", zone = "Asia/Shanghai")
+    public void task8() {
+        log.info("========定时抢羽毛球场地 begin==========");
+
+        //  获取当前日期+2天
+        DateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd");
+        String date2 = df.format(System.currentTimeMillis() + 2 * 24 * 60 * 60 * 1000);
+
+        CreaOrderResponse creaOrderResponse2 = memberOrder(date2, "Y:6,11:00-12:00");
+        getminipaystring(creaOrderResponse2.getData2(), creaOrderResponse2.getData1());
+
+        log.info("========定时抢羽毛球场地 end==========");
+    }
 
     public CreaOrderResponse memberOrder(String data, String cdstring ) {
         RestTemplate restTemplate = new RestTemplate();
