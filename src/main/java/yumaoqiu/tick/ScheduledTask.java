@@ -9,16 +9,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 import java.net.URI;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 
 /**
@@ -53,6 +58,9 @@ public class ScheduledTask {
     private static String wxKeyValue;
     @Value("${cdstring}")
     private static String cdstringValue;
+
+    @Resource(name = "jobExecutor")
+    private ThreadPoolTaskExecutor jobExecutor;
 
     @PostConstruct
     public void init() {
@@ -98,22 +106,14 @@ public class ScheduledTask {
         String date2 = df.format(System.currentTimeMillis() + 2 * 24 * 60 * 60 * 1000);
 
         CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_3_4);
-        getminipaystring(creaOrderResponse.getData2(), creaOrderResponse.getData1());
-
-
         CreaOrderResponse creaOrderResponse2 = memberOrder(date2, cdstringy4_4_5);
+
+        getminipaystring(creaOrderResponse.getData2(), creaOrderResponse.getData1());
         getminipaystring(creaOrderResponse2.getData2(), creaOrderResponse2.getData1());
 
         log.info("========定时抢羽毛球场地 end==========");
     }
 
-
-
-
-    @Scheduled(cron = "00 33 17 * * 5", zone = "Asia/Shanghai")
-    public void test() {
-        log.info("========定时抢羽毛球场地 test==========");
-    }
 
     /**
      * 每周无早晨6点执行curl请求抢周天10点到12点的羽毛球场地
@@ -126,80 +126,54 @@ public class ScheduledTask {
     @Scheduled(cron = "00 00 06 * * 5", zone = "Asia/Shanghai")
     public void task2() {
         log.info("========定时抢羽毛球场地 begin==========");
-
         //  获取当前日期+2天
         DateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd");
         String date2 = df.format(System.currentTimeMillis() + 2 * 24 * 60 * 60 * 1000);
 
-
-        CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_10_11);
-        getminipaystring(creaOrderResponse.getData2(), creaOrderResponse.getData1());
-
-        log.info("========定时抢羽毛球场地 end==========");
-    }
-    /**
-     * 每周无早晨6点执行curl请求抢周天10点到12点的羽毛球场地
-     *
-     * @author: winter
-     * @method: task
-     * @date: 2023/8/30 11:27 AM
-     * @return
-     */
-    @Scheduled(cron = "00 00 06 * * 5", zone = "Asia/Shanghai")
-    public void task3() {
-        log.info("========定时抢羽毛球场地 begin==========");
-
-        //  获取当前日期+2天
-        DateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd");
-        String date2 = df.format(System.currentTimeMillis() + 2 * 24 * 60 * 60 * 1000);
-
-        CreaOrderResponse creaOrderResponse2 = memberOrder(date2, cdstringy4_11_12);
-        getminipaystring(creaOrderResponse2.getData2(), creaOrderResponse2.getData1());
-
-        log.info("========定时抢羽毛球场地 end==========");
-    }
-    /**
-     * 每周无早晨6点执行curl请求抢周天10点到12点的羽毛球场地
-     *
-     * @author: winter
-     * @method: task
-     * @date: 2023/8/30 11:27 AM
-     * @return
-     */
-    @Scheduled(cron = "00 00 06 * * 5", zone = "Asia/Shanghai")
-    public void task4() {
-        log.info("========定时抢羽毛球场地 begin==========");
-
-        //  获取当前日期+2天
-        DateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd");
-        String date2 = df.format(System.currentTimeMillis() + 2 * 24 * 60 * 60 * 1000);
-
-        CreaOrderResponse creaOrderResponse2 = memberOrder(date2, "Y:5,10:00-11:00");
-        getminipaystring(creaOrderResponse2.getData2(), creaOrderResponse2.getData1());
+        List<CompletableFuture<CreaOrderResponse>> futures = new ArrayList<>();
+        // 4 10-11点
+        futures.add(CompletableFuture.supplyAsync(() -> {
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_10_11);
+            return creaOrderResponse;
+        }, jobExecutor));
+        // 4 11-12点
+        futures.add(CompletableFuture.supplyAsync(() -> {
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_11_12);
+            return creaOrderResponse;
+        }, jobExecutor));
+        // 5 10-11点
+        futures.add(CompletableFuture.supplyAsync(() -> {
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:5,10:00-11:00");
+            return creaOrderResponse;
+        }, jobExecutor));
+        // 5 11-12点
+        futures.add(CompletableFuture.supplyAsync(() -> {
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:5,11:00-12:00");
+            return creaOrderResponse;
+        }, jobExecutor));
+        // 6 10-11点
+        futures.add(CompletableFuture.supplyAsync(() -> {
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:6,10:00-11:00");
+            return creaOrderResponse;
+        }, jobExecutor));
+        // 6 11-12点
+        futures.add(CompletableFuture.supplyAsync(() -> {
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:6,11:00-12:00");
+            return creaOrderResponse;
+        }, jobExecutor));
+        // 生成支付单号
+        futures.forEach(future -> {
+            try {
+                CreaOrderResponse creaOrderResponse = future.get();
+                getminipaystring(creaOrderResponse.getData2(), creaOrderResponse.getData1());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
 
         log.info("========定时抢羽毛球场地 end==========");
     }
-    /**
-     * 每周无早晨6点执行curl请求抢周天10点到12点的羽毛球场地
-     *
-     * @author: winter
-     * @method: task
-     * @date: 2023/8/30 11:27 AM
-     * @return
-     */
-    @Scheduled(cron = "00 00 06 * * 5", zone = "Asia/Shanghai")
-    public void task5() {
-        log.info("========定时抢羽毛球场地 begin==========");
 
-        //  获取当前日期+2天
-        DateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd");
-        String date2 = df.format(System.currentTimeMillis() + 2 * 24 * 60 * 60 * 1000);
-
-        CreaOrderResponse creaOrderResponse2 = memberOrder(date2, "Y:5,11:00-12:00");
-        getminipaystring(creaOrderResponse2.getData2(), creaOrderResponse2.getData1());
-
-        log.info("========定时抢羽毛球场地 end==========");
-    }
 
     /**
      * 每周无早晨6点执行curl请求抢周天10点到12点的羽毛球场地
@@ -209,40 +183,57 @@ public class ScheduledTask {
      * @date: 2023/8/30 11:27 AM
      * @return
      */
-    @Scheduled(cron = "00 00 06 * * 5", zone = "Asia/Shanghai")
-    public void task7() {
+    @Scheduled(cron = "00 55 20 * * 1", zone = "Asia/Shanghai")
+    public void test() {
         log.info("========定时抢羽毛球场地 begin==========");
-
         //  获取当前日期+2天
         DateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd");
         String date2 = df.format(System.currentTimeMillis() + 2 * 24 * 60 * 60 * 1000);
 
-        CreaOrderResponse creaOrderResponse2 = memberOrder(date2, "Y:6,10:00-11:00");
-        getminipaystring(creaOrderResponse2.getData2(), creaOrderResponse2.getData1());
+        List<CompletableFuture<CreaOrderResponse>> futures = new ArrayList<>();
+        // 4 10-11点
+        futures.add(CompletableFuture.supplyAsync(() -> {
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_10_11);
+            return creaOrderResponse;
+        }, jobExecutor));
+        // 4 11-12点
+        futures.add(CompletableFuture.supplyAsync(() -> {
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_11_12);
+            return creaOrderResponse;
+        }, jobExecutor));
+        // 5 10-11点
+        futures.add(CompletableFuture.supplyAsync(() -> {
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:5,10:00-11:00");
+            return creaOrderResponse;
+        }, jobExecutor));
+        // 5 11-12点
+        futures.add(CompletableFuture.supplyAsync(() -> {
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:5,11:00-12:00");
+            return creaOrderResponse;
+        }, jobExecutor));
+        // 6 10-11点
+        futures.add(CompletableFuture.supplyAsync(() -> {
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:6,10:00-11:00");
+            return creaOrderResponse;
+        }, jobExecutor));
+        // 6 11-12点
+        futures.add(CompletableFuture.supplyAsync(() -> {
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:6,11:00-12:00");
+            return creaOrderResponse;
+        }, jobExecutor));
+        // 生成支付单号
+        futures.forEach(future -> {
+            try {
+                CreaOrderResponse creaOrderResponse = future.get();
+                getminipaystring(creaOrderResponse.getData2(), creaOrderResponse.getData1());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
 
         log.info("========定时抢羽毛球场地 end==========");
     }
-    /**
-     * 每周无早晨6点执行curl请求抢周天10点到12点的羽毛球场地
-     *
-     * @author: winter
-     * @method: task
-     * @date: 2023/8/30 11:27 AM
-     * @return
-     */
-    @Scheduled(cron = "00 00 06 * * 5", zone = "Asia/Shanghai")
-    public void task8() {
-        log.info("========定时抢羽毛球场地 begin==========");
 
-        //  获取当前日期+2天
-        DateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd");
-        String date2 = df.format(System.currentTimeMillis() + 2 * 24 * 60 * 60 * 1000);
-
-        CreaOrderResponse creaOrderResponse2 = memberOrder(date2, "Y:6,11:00-12:00");
-        getminipaystring(creaOrderResponse2.getData2(), creaOrderResponse2.getData1());
-
-        log.info("========定时抢羽毛球场地 end==========");
-    }
 
     public CreaOrderResponse memberOrder(String data, String cdstring ) {
         RestTemplate restTemplate = new RestTemplate();
