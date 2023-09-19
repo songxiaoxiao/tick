@@ -105,11 +105,33 @@ public class ScheduledTask {
         DateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd");
         String date2 = df.format(System.currentTimeMillis() + 2 * 24 * 60 * 60 * 1000);
 
-        CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_3_4);
-        CreaOrderResponse creaOrderResponse2 = memberOrder(date2, cdstringy4_4_5);
+//        CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_3_4);
+//        CreaOrderResponse creaOrderResponse2 = memberOrder(date2, cdstringy4_4_5);
 
-        getminipaystring(creaOrderResponse.getData2(), creaOrderResponse.getData1());
-        getminipaystring(creaOrderResponse2.getData2(), creaOrderResponse2.getData1());
+        List<CompletableFuture<CreaOrderResponse>> futures = new ArrayList<>();
+        // 4 10-11点
+        futures.add(CompletableFuture.supplyAsync(() -> {
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_3_4);
+            return creaOrderResponse;
+        }, jobExecutor));
+
+        futures.add(CompletableFuture.supplyAsync(() -> {
+            CreaOrderResponse creaOrderResponse2 = memberOrder(date2, cdstringy4_4_5);
+            return creaOrderResponse2;
+        }, jobExecutor));
+
+        // 生成支付单号
+        futures.forEach(future -> {
+            try {
+                CreaOrderResponse creaOrderResponse = future.get();
+                getminipaystring(creaOrderResponse.getData2(), creaOrderResponse.getData1());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+//        getminipaystring(creaOrderResponse.getData2(), creaOrderResponse.getData1());
+//        getminipaystring(creaOrderResponse2.getData2(), creaOrderResponse2.getData1());
 
         log.info("========定时抢羽毛球场地 end==========");
     }
@@ -183,7 +205,7 @@ public class ScheduledTask {
      * @date: 2023/8/30 11:27 AM
      * @return
      */
-    @Scheduled(cron = "00 55 20 * * 1", zone = "Asia/Shanghai")
+    @Scheduled(cron = "00 13 17 * * 2", zone = "Asia/Shanghai")
     public void test() {
         log.info("========定时抢羽毛球场地 begin==========");
         //  获取当前日期+2天
@@ -228,6 +250,7 @@ public class ScheduledTask {
                 getminipaystring(creaOrderResponse.getData2(), creaOrderResponse.getData1());
             } catch (Exception e) {
                 e.printStackTrace();
+                log.error("========定时抢羽毛球场地 error==========", e);
             }
         });
 
@@ -236,32 +259,37 @@ public class ScheduledTask {
 
 
     public CreaOrderResponse memberOrder(String data, String cdstring ) {
-        RestTemplate restTemplate = new RestTemplate();
+        try {
+            RestTemplate restTemplate = new RestTemplate();
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("Connection", "keep-alive");
-        headers.set("Host", "www.koksoft.com");
-        headers.set("Sec-Fetch-Mode", "cors");
-        headers.set("Sec-Fetch-Site", "cross-site");
-        headers.set("content-type", "multipart/form-data");
-        headers.set("wxkey", wxKey);
+            HttpHeaders headers = new HttpHeaders();
+            headers.set("Connection", "keep-alive");
+            headers.set("Host", "www.koksoft.com");
+            headers.set("Sec-Fetch-Mode", "cors");
+            headers.set("Sec-Fetch-Site", "cross-site");
+            headers.set("content-type", "application/x-www-form-urlencoded");
+            headers.set("wxkey", wxKey);
 
-        MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
+            MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
 
-        body.add("datestring", data);
-        body.add("cdstring", cdstring);
-        body.add("paytype", "W");
-        body.add("guestname", guestname);
-        log.info("请求参数:{}", body);
-        log.info("请求头:{}", headers);
-        HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(body, headers);
-        ResponseEntity<String> exchange = restTemplate.exchange(url, HttpMethod.POST, requestEntity, String.class);
+            body.add("datestring", data);
+            body.add("cdstring", cdstring);
+            body.add("paytype", "W");
+            body.add("guestname", guestname);
+            log.info("请求参数:{}", body);
+            log.info("请求头:{}", headers);
+            HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(body, headers);
+            ResponseEntity<String> exchange = restTemplate.exchange(url, HttpMethod.POST, requestEntity, String.class);
 
 
-        log.info("结果：{}", exchange.getBody());
-        Response<CreaOrderResponse> creaOrderResponseResponse =
-                JSON.parseObject(exchange.getBody(), new TypeReference<Response<CreaOrderResponse>>(Response.class) {});
-        return creaOrderResponseResponse.getResult();
+            log.info("结果：{}", exchange.getBody());
+            Response<CreaOrderResponse> creaOrderResponseResponse =
+                    JSON.parseObject(exchange.getBody(), new TypeReference<Response<CreaOrderResponse>>(Response.class) {});
+            return creaOrderResponseResponse.getResult();
+        } catch (Exception e) {
+            log.error("========定时抢羽毛球场地 error==========", e);
+        }
+        return new CreaOrderResponse();
     }
 
 
