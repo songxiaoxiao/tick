@@ -105,8 +105,6 @@ public class ScheduledTask {
         DateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd");
         String date2 = df.format(System.currentTimeMillis() + 2 * 24 * 60 * 60 * 1000);
 
-//        CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_3_4);
-//        CreaOrderResponse creaOrderResponse2 = memberOrder(date2, cdstringy4_4_5);
 
         List<CompletableFuture<CreaOrderResponse>> futures = new ArrayList<>();
         // 4 10-11点
@@ -116,8 +114,8 @@ public class ScheduledTask {
         }, jobExecutor));
 
         futures.add(CompletableFuture.supplyAsync(() -> {
-            CreaOrderResponse creaOrderResponse2 = memberOrder(date2, cdstringy4_4_5);
-            return creaOrderResponse2;
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_4_5);
+            return creaOrderResponse;
         }, jobExecutor));
 
         // 生成支付单号
@@ -153,16 +151,7 @@ public class ScheduledTask {
         String date2 = df.format(System.currentTimeMillis() + 2 * 24 * 60 * 60 * 1000);
 
         List<CompletableFuture<CreaOrderResponse>> futures = new ArrayList<>();
-        // 4 10-11点
-        futures.add(CompletableFuture.supplyAsync(() -> {
-            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_10_11);
-            return creaOrderResponse;
-        }, jobExecutor));
-        // 4 11-12点
-        futures.add(CompletableFuture.supplyAsync(() -> {
-            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_11_12);
-            return creaOrderResponse;
-        }, jobExecutor));
+
         // 5 10-11点
         futures.add(CompletableFuture.supplyAsync(() -> {
             CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:5,10:00-11:00");
@@ -173,6 +162,18 @@ public class ScheduledTask {
             CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:5,11:00-12:00");
             return creaOrderResponse;
         }, jobExecutor));
+
+        // 4 10-11点
+        futures.add(CompletableFuture.supplyAsync(() -> {
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_10_11);
+            return creaOrderResponse;
+        }, jobExecutor));
+        // 4 11-12点
+        futures.add(CompletableFuture.supplyAsync(() -> {
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_11_12);
+            return creaOrderResponse;
+        }, jobExecutor));
+
         // 6 10-11点
         futures.add(CompletableFuture.supplyAsync(() -> {
             CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:6,10:00-11:00");
