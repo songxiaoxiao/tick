@@ -49,8 +49,8 @@ public class ScheduledTask {
     private static String datestring = "2023-09-02";
     private static String cdstringy4_3_4 = "Y:4,09:00-10:00";
     private static String cdstringy4_4_5 = "Y:4,10:00-11:00";
-    private static String cdstringy4_10_11 = "Y:4,10:00-11:00";
-    private static String cdstringy4_11_12 = "Y:4,11:00-12:00";
+    private static String cdstringy4_10_11 = "Y:4,09:00-10:00";
+    private static String cdstringy4_11_12 = "Y:4,10:00-11:00";
     private static String phone = "18516313142";
     private static String guestname = "宋肖肖";
 
@@ -143,7 +143,7 @@ public class ScheduledTask {
      * @date: 2023/8/30 11:27 AM
      * @return
      */
-    @Scheduled(cron = "00 00 06 * * 5", zone = "Asia/Shanghai")
+    @Scheduled(cron = "00 19 06 * * 5", zone = "Asia/Shanghai")
     public void task2() {
         log.info("========定时抢羽毛球场地 begin==========");
         //  获取当前日期+2天
