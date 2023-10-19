@@ -206,7 +206,7 @@ public class ScheduledTask {
      * @date: 2023/8/30 11:27 AM
      * @return
      */
-    @Scheduled(cron = "59 59 05 * * 5", zone = "Asia/Shanghai")
+//    @Scheduled(cron = "59 59 05 * * 5", zone = "Asia/Shanghai")
     public void test() {
         log.info("========定时抢羽毛球场地 begin==========");
         //  获取当前日期+2天
