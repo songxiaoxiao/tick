@@ -143,7 +143,7 @@ public class ScheduledTask {
      * @date: 2023/8/30 11:27 AM
      * @return
      */
-    @Scheduled(cron = "00 19 06 * * 5", zone = "Asia/Shanghai")
+    @Scheduled(cron = "00 00 06 * * 5", zone = "Asia/Shanghai")
     public void task2() {
         log.info("========定时抢羽毛球场地 begin==========");
         //  获取当前日期+2天
@@ -153,15 +153,15 @@ public class ScheduledTask {
         List<CompletableFuture<CreaOrderResponse>> futures = new ArrayList<>();
 
         // 5 10-11点
-        futures.add(CompletableFuture.supplyAsync(() -> {
-            CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:5,10:00-11:00");
-            return creaOrderResponse;
-        }, jobExecutor));
-        // 5 11-12点
-        futures.add(CompletableFuture.supplyAsync(() -> {
-            CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:5,11:00-12:00");
-            return creaOrderResponse;
-        }, jobExecutor));
+//        futures.add(CompletableFuture.supplyAsync(() -> {
+//            CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:5,10:00-11:00");
+//            return creaOrderResponse;
+//        }, jobExecutor));
+//        // 5 11-12点
+//        futures.add(CompletableFuture.supplyAsync(() -> {
+//            CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:5,11:00-12:00");
+//            return creaOrderResponse;
+//        }, jobExecutor));
 
         // 4 10-11点
         futures.add(CompletableFuture.supplyAsync(() -> {
@@ -175,15 +175,15 @@ public class ScheduledTask {
         }, jobExecutor));
 
         // 6 10-11点
-        futures.add(CompletableFuture.supplyAsync(() -> {
-            CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:6,10:00-11:00");
-            return creaOrderResponse;
-        }, jobExecutor));
-        // 6 11-12点
-        futures.add(CompletableFuture.supplyAsync(() -> {
-            CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:6,11:00-12:00");
-            return creaOrderResponse;
-        }, jobExecutor));
+//        futures.add(CompletableFuture.supplyAsync(() -> {
+//            CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:6,10:00-11:00");
+//            return creaOrderResponse;
+//        }, jobExecutor));
+//        // 6 11-12点
+//        futures.add(CompletableFuture.supplyAsync(() -> {
+//            CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:6,11:00-12:00");
+//            return creaOrderResponse;
+//        }, jobExecutor));
         // 生成支付单号
         futures.forEach(future -> {
             try {
@@ -206,7 +206,7 @@ public class ScheduledTask {
      * @date: 2023/8/30 11:27 AM
      * @return
      */
-    @Scheduled(cron = "00 13 17 * * 2", zone = "Asia/Shanghai")
+    @Scheduled(cron = "59 59 05 * * 5", zone = "Asia/Shanghai")
     public void test() {
         log.info("========定时抢羽毛球场地 begin==========");
         //  获取当前日期+2天
@@ -278,7 +278,6 @@ public class ScheduledTask {
             body.add("paytype", "W");
             body.add("guestname", guestname);
             log.info("请求参数:{}", body);
-            log.info("请求头:{}", headers);
             HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(body, headers);
             ResponseEntity<String> exchange = restTemplate.exchange(url, HttpMethod.POST, requestEntity, String.class);
 
