@@ -47,10 +47,10 @@ public class ScheduledTask {
     private static String getminipaystring = "https://www.koksoft.com/booking/memberorder";
 
     private static String datestring = "2023-09-02";
-    private static String cdstringy4_3_4 = "Y:4,09:00-10:00";
-    private static String cdstringy4_4_5 = "Y:4,10:00-11:00";
-    private static String cdstringy4_10_11 = "Y:4,09:00-10:00";
-    private static String cdstringy4_11_12 = "Y:4,10:00-11:00";
+    private static String cdstringy4_10_11 = "Y:4,10:00-11:00";
+    private static String cdstringy4_14_15 = "Y:4,14:00-15:00";
+    private static String cdstringy4_08_09 = "Y:4,08:00-09:00";
+    private static String cdstringy4_09_10 = "Y:4,09:00-10:00";
     private static String phone = "18516313142";
     private static String guestname = "宋肖肖";
 
@@ -109,12 +109,12 @@ public class ScheduledTask {
         List<CompletableFuture<CreaOrderResponse>> futures = new ArrayList<>();
         // 4 10-11点
         futures.add(CompletableFuture.supplyAsync(() -> {
-            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_3_4);
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_08_09);
             return creaOrderResponse;
         }, jobExecutor));
 
         futures.add(CompletableFuture.supplyAsync(() -> {
-            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_4_5);
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_09_10);
             return creaOrderResponse;
         }, jobExecutor));
 
@@ -170,7 +170,7 @@ public class ScheduledTask {
         }, jobExecutor));
         // 4 11-12点
         futures.add(CompletableFuture.supplyAsync(() -> {
-            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_11_12);
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_09_10);
             return creaOrderResponse;
         }, jobExecutor));
 
