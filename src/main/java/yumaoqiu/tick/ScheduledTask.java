@@ -96,7 +96,7 @@ public class ScheduledTask {
          * @date: 2023/8/30 11:27 AM
          * @return
          */
-    @Scheduled(cron = "00 00 06 * * 4", zone = "Asia/Shanghai")
+    @Scheduled(cron = "59 59 05 * * 4", zone = "Asia/Shanghai")
     public void task() {
         log.info("========定时抢羽毛球场地 begin==========");
 
@@ -136,14 +136,14 @@ public class ScheduledTask {
 
 
     /**
-     * 每周无早晨6点执行curl请求抢周天10点到12点的羽毛球场地
+     * 每周五早晨6点执行curl请求抢周天10点到12点的羽毛球场地
      *
      * @author: winter
      * @method: task
      * @date: 2023/8/30 11:27 AM
      * @return
      */
-    @Scheduled(cron = "00 00 06 * * 5", zone = "Asia/Shanghai")
+//    @Scheduled(cron = "00 00 06 * * 5", zone = "Asia/Shanghai")
     public void task2() {
         log.info("========定时抢羽毛球场地 begin==========");
         //  获取当前日期+2天
@@ -165,7 +165,7 @@ public class ScheduledTask {
 
         // 4 10-11点
         futures.add(CompletableFuture.supplyAsync(() -> {
-            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_10_11);
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_08_09);
             return creaOrderResponse;
         }, jobExecutor));
         // 4 11-12点
@@ -205,7 +205,7 @@ public class ScheduledTask {
 
 
     /**
-     * 每周无早晨6点执行curl请求抢周天10点到12点的羽毛球场地
+     * 每周无早晨6点执行curl请求抢周天8点到10点的羽毛球场地
      *
      * @author: winter
      * @method: task
@@ -222,34 +222,15 @@ public class ScheduledTask {
         List<CompletableFuture<CreaOrderResponse>> futures = new ArrayList<>();
         // 4 10-11点
         futures.add(CompletableFuture.supplyAsync(() -> {
-            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_10_11);
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_08_09);
             return creaOrderResponse;
         }, jobExecutor));
         // 4 11-12点
         futures.add(CompletableFuture.supplyAsync(() -> {
-            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_11_12);
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_09_10);
             return creaOrderResponse;
         }, jobExecutor));
-        // 5 10-11点
-        futures.add(CompletableFuture.supplyAsync(() -> {
-            CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:5,10:00-11:00");
-            return creaOrderResponse;
-        }, jobExecutor));
-        // 5 11-12点
-        futures.add(CompletableFuture.supplyAsync(() -> {
-            CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:5,11:00-12:00");
-            return creaOrderResponse;
-        }, jobExecutor));
-        // 6 10-11点
-        futures.add(CompletableFuture.supplyAsync(() -> {
-            CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:6,10:00-11:00");
-            return creaOrderResponse;
-        }, jobExecutor));
-        // 6 11-12点
-        futures.add(CompletableFuture.supplyAsync(() -> {
-            CreaOrderResponse creaOrderResponse = memberOrder(date2, "Y:6,11:00-12:00");
-            return creaOrderResponse;
-        }, jobExecutor));
+
         // 生成支付单号
         futures.forEach(future -> {
             try {
