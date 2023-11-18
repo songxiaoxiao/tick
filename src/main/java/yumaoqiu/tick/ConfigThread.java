@@ -31,7 +31,7 @@ public class ConfigThread {
     public ThreadPoolTaskExecutor jobExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(10);
-        executor.setKeepAliveSeconds(300);
+        executor.setKeepAliveSeconds(3000);
         executor.setMaxPoolSize(20);
         executor.setQueueCapacity(0);
         executor.setAllowCoreThreadTimeOut(true);

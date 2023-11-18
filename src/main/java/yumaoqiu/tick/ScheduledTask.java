@@ -135,7 +135,7 @@ public class ScheduledTask {
     }
 
 
-    @Scheduled(cron = "58 59 05 * * 6", zone = "Asia/Shanghai")
+    @Scheduled(cron = "59 59 05 * * 7", zone = "Asia/Shanghai")
     public void task2() {
         log.info("========定时抢羽毛球场地 begin==========");
         //  获取当前日期+2天
@@ -147,6 +147,10 @@ public class ScheduledTask {
         // 4 10-11点
         futures.add(CompletableFuture.supplyAsync(() -> {
             CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_08_09);
+            return creaOrderResponse;
+        }, jobExecutor));
+        futures.add(CompletableFuture.supplyAsync(() -> {
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_09_10);
             return creaOrderResponse;
         }, jobExecutor));
 
@@ -162,7 +166,7 @@ public class ScheduledTask {
 
         log.info("========定时抢羽毛球场地 end==========");
     }
-    @Scheduled(cron = "58 59 05 * * 6", zone = "Asia/Shanghai")
+    @Scheduled(cron = "55 59 05 * * 7", zone = "Asia/Shanghai")
     public void task3() {
         log.info("========定时抢羽毛球场地 begin==========");
         //  获取当前日期+2天
@@ -171,9 +175,25 @@ public class ScheduledTask {
 
         List<CompletableFuture<CreaOrderResponse>> futures = new ArrayList<>();
 
-        CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_09_10);
+        // 4 10-11点
+        futures.add(CompletableFuture.supplyAsync(() -> {
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_08_09);
+            return creaOrderResponse;
+        }, jobExecutor));
+        futures.add(CompletableFuture.supplyAsync(() -> {
+            CreaOrderResponse creaOrderResponse = memberOrder(date2, cdstringy4_09_10);
+            return creaOrderResponse;
+        }, jobExecutor));
 
-        getminipaystring(creaOrderResponse.getData2(), creaOrderResponse.getData1());
+        // 生成支付单号
+        futures.forEach(future -> {
+            try {
+                CreaOrderResponse creaOrderResponse = future.get();
+                getminipaystring(creaOrderResponse.getData2(), creaOrderResponse.getData1());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
 
         log.info("========定时抢羽毛球场地 end==========");
     }
