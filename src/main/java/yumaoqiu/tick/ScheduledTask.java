@@ -135,7 +135,7 @@ public class ScheduledTask {
     }
 
 
-    @Scheduled(cron = "59 59 05 * * 7", zone = "Asia/Shanghai")
+    @Scheduled(cron = "00 00 06 * * 1", zone = "Asia/Shanghai")
     public void task2() {
         log.info("========定时抢羽毛球场地 begin==========");
         //  获取当前日期+2天
@@ -166,7 +166,7 @@ public class ScheduledTask {
 
         log.info("========定时抢羽毛球场地 end==========");
     }
-    @Scheduled(cron = "55 59 05 * * 7", zone = "Asia/Shanghai")
+    @Scheduled(cron = "55 59 05 * * 1", zone = "Asia/Shanghai")
     public void task3() {
         log.info("========定时抢羽毛球场地 begin==========");
         //  获取当前日期+2天
