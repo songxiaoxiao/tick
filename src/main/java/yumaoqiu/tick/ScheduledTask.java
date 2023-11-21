@@ -107,11 +107,13 @@ public class ScheduledTask {
         futures.add(CompletableFuture.supplyAsync(() -> {
 
             CreaOrderResponse creaOrderResponse = memberOrder(getRequestEntity(date2, cdstringy4_08_09));
+            getminipaystring(creaOrderResponse.getData2(), creaOrderResponse.getData1());
             return creaOrderResponse;
         }, jobExecutor));
 
         futures.add(CompletableFuture.supplyAsync(() -> {
             CreaOrderResponse creaOrderResponse = memberOrder(getRequestEntity(date2, cdstringy4_09_10));
+            getminipaystring(creaOrderResponse.getData2(), creaOrderResponse.getData1());
             return creaOrderResponse;
         }, jobExecutor));
 
@@ -119,7 +121,7 @@ public class ScheduledTask {
         futures.forEach(future -> {
             try {
                 CreaOrderResponse creaOrderResponse = future.get();
-                getminipaystring(creaOrderResponse.getData2(), creaOrderResponse.getData1());
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -154,7 +156,6 @@ public class ScheduledTask {
         futures.forEach(future -> {
             try {
                 CreaOrderResponse creaOrderResponse = future.get();
-                getminipaystring(creaOrderResponse.getData2(), creaOrderResponse.getData1());
             } catch (Exception e) {
                 e.printStackTrace();
             }
