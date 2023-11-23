@@ -132,7 +132,7 @@ public class ScheduledTask {
 
 
 
-    @Scheduled(cron = "59 59 05 * * 4", zone = "Asia/Shanghai")
+    @Scheduled(cron = "59 59 05 * * 5", zone = "Asia/Shanghai")
     public void test(){
         try{
             Thread.sleep(950);
@@ -169,7 +169,7 @@ public class ScheduledTask {
         log.info("========定时抢羽毛球场地 end==========");
     }
 
-    @Scheduled(cron = "00 50 05 * * 4", zone = "Asia/Shanghai")
+    @Scheduled(cron = "00 50 05 * * 5", zone = "Asia/Shanghai")
     public void yure() {
         log.info("========定时抢羽毛球场地 begin==========");
         //  获取当前日期+2天
