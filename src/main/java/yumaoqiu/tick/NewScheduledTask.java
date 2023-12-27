@@ -105,14 +105,15 @@ public class NewScheduledTask {
          */
     @Scheduled(cron = "59 59 23 * * *", zone = "Asia/Shanghai")
     public void test() throws IOException {
+        //  获取当前日期+2天
+        String date3 = getDate3();
+
         try{
             Thread.sleep(900);
         }catch (Exception e){
             log.info("sleep error");
         }
         log.info("========定时抢羽毛球场地 begin==========");
-        //  获取当前日期+2天
-        String date3 = getDate3();
 
         getminipaystring("", date3);
 
@@ -162,7 +163,7 @@ public class NewScheduledTask {
      */
     public static String getDate3() {
         DateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd");
-        return df.format(System.currentTimeMillis() + 3 * 24 * 60 * 60 * 1000);
+        return df.format(System.currentTimeMillis() + 4 * 24 * 60 * 60 * 1000);
     }
 
 
