@@ -117,14 +117,11 @@ public class NewScheduledTask {
 
         getminipaystring("", date3);
 
-
         log.info("========定时抢羽毛球场地 end==========");
     }
 
     public static void main(String[] args) throws IOException {
-        String date2 = getDate2();
-
-        getminipaystring("", date2);
+        System.out.println(getDate3());
     }
 
     @Scheduled(cron = "00 50 05 * * 3", zone = "Asia/Shanghai")
@@ -163,8 +160,10 @@ public class NewScheduledTask {
      */
     public static String getDate3() {
         DateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd");
-        return df.format(System.currentTimeMillis() + 4 * 24 * 60 * 60 * 1000);
+        return df.format(System.currentTimeMillis() + 7 * 24 * 60 * 60 * 1000);
     }
+
+
 
 
     public static void getminipaystring(String payje, String date) throws IOException {
@@ -180,7 +179,8 @@ public class NewScheduledTask {
             con.setRequestProperty("theme-compatible", "1");
             con.setRequestProperty("brand-code", "DyKGrOyBKxD");
             con.setRequestProperty("user-agent", "Mozilla/5.0 (Linux; U; Android 9; zh-cn; Redmi Note 5 Build/PKQ1.180904.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.141 Mobile Safari/537.36 XiaoMi/MiuiBrowser/11.10.8");
-            con.setRequestProperty("wx-token", "Cnp9p3jyrdzCuwk8n_1oU-xKHce-8lF2");
+            con.setRequestProperty("wx-token", "FGaSt_1Zgx0OOCBKtuZ7jGvzOTb8Egzc");
+//            con.setRequestProperty("wx-token", "wuyGAAnCCGs-REeK0ke7_DFY3kJppwxL");
             con.setRequestProperty("referer", "https://servicewechat.com/wx42459a712712364c/1/page-frame.html");
             con.setRequestProperty("app-id", "mina");
             con.setRequestProperty("xweb_xhr", "1");
@@ -216,14 +216,21 @@ public class NewScheduledTask {
                     "            \"site_name\": \"羽毛球场地4\",\n" +
                     "            \"start_time\": \"08:00\",\n" +
                     "            \"end_time\": \"09:00\",\n" +
-                    "            \"price\": \"60.0\"\n" +
+                    "            \"price\": \"20.0\"\n" +
                     "        },\n" +
                     "        {\n" +
                     "            \"site_id\": 2325880735662119,\n" +
                     "            \"site_name\": \"羽毛球场地4\",\n" +
                     "            \"start_time\": \"09:00\",\n" +
                     "            \"end_time\": \"10:00\",\n" +
-                    "            \"price\": \"60.0\"\n" +
+                    "            \"price\": \"20.0\"\n" +
+                    "        },\n" +
+                    "        {\n" +
+                    "            \"site_id\": 2325880735662120,\n" +
+                    "            \"site_name\": \"羽毛球场地5\",\n" +
+                    "            \"start_time\": \"08:00\",\n" +
+                    "            \"end_time\": \"09:00\",\n" +
+                    "            \"price\": \"20.0\"\n" +
                     "        }\n" +
                     "    ]\n" +
 
@@ -235,7 +242,7 @@ public class NewScheduledTask {
 
             // 获取响应码
             int responseCode = con.getResponseCode();
-            System.out.println("Response Code: " + responseCode);
+            log.info("Response Code: " + responseCode);
         // 读取响应体
         try (BufferedReader in = new BufferedReader(new InputStreamReader(
                 responseCode >= 400 ? con.getErrorStream() : con.getInputStream()))) {
@@ -244,7 +251,7 @@ public class NewScheduledTask {
             while ((inputLine = in.readLine()) != null) {
                 response.append(inputLine);
             }
-            System.out.println("Response Body: " + response.toString());
+            log.info("Response Body: " + response.toString());
         }
 
     }
