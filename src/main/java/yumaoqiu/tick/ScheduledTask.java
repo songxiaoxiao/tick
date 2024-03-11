@@ -56,6 +56,10 @@ public class ScheduledTask {
 
     @Value("${wxkey}")
     private static String wxKeyValue;
+
+    @Value("${dateSite}")
+    private static String dateSite;
+
     @Value("${cdstring}")
     private static String cdstringValue;
 
@@ -65,10 +69,15 @@ public class ScheduledTask {
     @PostConstruct
     public void init() {
         setWxKey(wxKeyValue);
+        setDateSite(dateSite);
     }
 
     public static void setWxKey(String wxKey) {
         ScheduledTask.wxKey = wxKey;
+    }
+
+    public static void setDateSite(String dateSite) {
+        ScheduledTask.dateSite = dateSite;
     }
 
     public static void setUrl(String url) {

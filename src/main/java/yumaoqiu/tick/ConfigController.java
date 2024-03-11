@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 
 /**
  * <p> 设置配置文件 </p>
@@ -18,32 +19,31 @@ import javax.annotation.Resource;
 public class ConfigController {
 
     @Resource
-    private ScheduledTask scheduledTask;
+    private NewScheduledTask newScheduledTask;
 
+    /**
+     * 微信key 设置。
+     *
+     * @param  key      参数描述
+     * @param  dateSite 参数描述
+     * @return          返回值描述
+     */
     @RequestMapping("/config")
-    public String config(@RequestParam("key") String key, @RequestParam("cdstring") String cdstring) {
-        log.info("key: {}, cdstring: {}", key, cdstring);
-        ScheduledTask.setWxKey(key);
+    public String config(@RequestParam("key") String key, @RequestParam("dateSite") String dateSite) {
+        log.info("key: {}, dateSite: {}", key, dateSite);
+        NewScheduledTask.setWxKeyValue(key);
         return "OK";
     }
 
-    @RequestMapping("/order")
-    public CreaOrderResponse order(@RequestParam("date") String date, @RequestParam("cdstring") String cdstring) {
-
-        CreaOrderResponse creaOrderResponse = scheduledTask.memberOrder( scheduledTask.getRequestEntity(date, cdstring));
-        scheduledTask.getminipaystring(creaOrderResponse.getData2(), creaOrderResponse.getData1());
-        return creaOrderResponse;
-    }
-
-    @RequestMapping("/task2")
-    public CreaOrderResponse order() {
-       scheduledTask.test();
-        return null;
+    @RequestMapping("/test")
+    public String config2() throws IOException {
+        newScheduledTask.test();
+        return "OK";
     }
 
     @RequestMapping("/yure")
     public CreaOrderResponse yure() {
-       scheduledTask.yure();
+        newScheduledTask.yure();
         return null;
     }
 

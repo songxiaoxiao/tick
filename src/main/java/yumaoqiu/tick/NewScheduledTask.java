@@ -1,20 +1,11 @@
 package yumaoqiu.tick;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.TypeReference;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
@@ -23,15 +14,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.DateFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.CompletableFuture;
-
 
 /**
  *
@@ -47,8 +31,7 @@ import java.util.concurrent.CompletableFuture;
 @Data
 public class NewScheduledTask {
 
-    // 微信key
-    private static String wxKey;
+
     // 请求接口地址
     private static String url = "https://www.koksoft.com/booking/memberorder";
     private static String getminipaystring = "https://www.koksoft.com/booking/memberorder";
@@ -61,8 +44,13 @@ public class NewScheduledTask {
     private static String phone = "18516313142";
     private static String guestname = "宋肖肖";
 
-    @Value("${wxkey}")
+    // 微信key
+    @Value("${wxkey:kQph3V7HoZYTSsx0IoRHuoGmg6Y8vlOi}")
     private static String wxKeyValue;
+
+    @Value("${dateSite:[{\n" + "\t\"site_id\": 2325880735662119,\n" + "\t\"site_name\": \"羽毛球场地4\",\n" + "\t\"start_time\": \"08:00\",\n" + "\t\"end_time\": \"09:00\",\n" + "\t\"price\": \"20.0\"\n" + "}, {\n" + "\t\"site_id\": 2325880735662119,\n" + "\t\"site_name\": \"羽毛球场地4\",\n" + "\t\"start_time\": \"09:00\",\n" + "\t\"end_time\": \"10:00\",\n" + "\t\"price\": \"20.0\"\n" + "}, {\n" + "\t\"site_id\": 2325880735662119,\n" + "\t\"site_name\": \"羽毛球场地4\",\n" + "\t\"start_time\": \"10:00\",\n" + "\t\"end_time\": \"11:00\",\n" + "\t\"price\": \"20.0\"\n" + "}, {\n" + "\t\"site_id\": 2325880735662120,\n" + "\t\"site_name\": \"羽毛球场地5\",\n" + "\t\"start_time\": \"08:00\",\n" + "\t\"end_time\": \"09:00\",\n" + "\t\"price\": \"20.0\"\n" + "}]}")
+    private static String dateSite;
+
     @Value("${cdstring}")
     private static String cdstringValue;
 
@@ -71,28 +59,16 @@ public class NewScheduledTask {
 
     @PostConstruct
     public void init() {
-        setWxKey(wxKeyValue);
+        setWxKeyValue(wxKeyValue);
+        setDateSite(dateSite);
     }
 
-    public static void setWxKey(String wxKey) {
-        NewScheduledTask.wxKey = wxKey;
+    public static void setWxKeyValue(String wxKeyValue) {
+        NewScheduledTask.wxKeyValue = wxKeyValue;
     }
 
-    public static void setUrl(String url) {
-        NewScheduledTask.url = url;
-    }
-
-    public static void setDatestring(String datestring) {
-        NewScheduledTask.datestring = datestring;
-    }
-
-
-    public static void setPhone(String phone) {
-        NewScheduledTask.phone = phone;
-    }
-
-    public static void setGuestname(String guestname) {
-        NewScheduledTask.guestname = guestname;
+    public static void setDateSite(String dateSite) {
+        NewScheduledTask.dateSite = dateSite;
     }
 
         /**
@@ -106,7 +82,7 @@ public class NewScheduledTask {
     @Scheduled(cron = "59 59 23 * * *", zone = "Asia/Shanghai")
     public void test() throws IOException {
         //  获取当前日期+2天
-        String date3 = getDate3();
+        String date3 = getDate7();
 
         try{
             Thread.sleep(900);
@@ -120,10 +96,6 @@ public class NewScheduledTask {
         log.info("========定时抢羽毛球场地 end==========");
     }
 
-    public static void main(String[] args) throws IOException {
-        System.out.println(getDate3());
-    }
-
     @Scheduled(cron = "00 50 05 * * 3", zone = "Asia/Shanghai")
     public void yure() {
         log.info("========定时抢羽毛球场地 begin==========");
@@ -131,24 +103,12 @@ public class NewScheduledTask {
         for (int i = 0; i < 5; i++) {
             jobExecutor.execute(() -> {
                 // 日期
-                String date2 = getDate2();
+                String date2 = getDate7();
             });
         }
         log.info("========定时抢羽毛球场地 end==========");
     }
 
-    /**
-     * 获取当前日期+2
-     *
-     * @author: winter
-     * @method: task2
-     * @date: 2023/11/20 11:53 AM
-     * @return
-     */
-    public static String getDate2() {
-        DateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd");
-        return df.format(System.currentTimeMillis() + 2 * 24 * 60 * 60 * 1000);
-    }
 
     /**
      * 获取当前日期+3
@@ -158,7 +118,7 @@ public class NewScheduledTask {
      * @date: 2023/11/20 11:53 AM
      * @return
      */
-    public static String getDate3() {
+    public static String getDate7() {
         DateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd");
         return df.format(System.currentTimeMillis() + 7 * 24 * 60 * 60 * 1000);
     }
@@ -179,7 +139,7 @@ public class NewScheduledTask {
             con.setRequestProperty("theme-compatible", "1");
             con.setRequestProperty("brand-code", "DyKGrOyBKxD");
             con.setRequestProperty("user-agent", "Mozilla/5.0 (Linux; U; Android 9; zh-cn; Redmi Note 5 Build/PKQ1.180904.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.141 Mobile Safari/537.36 XiaoMi/MiuiBrowser/11.10.8");
-            con.setRequestProperty("wx-token", "FGaSt_1Zgx0OOCBKtuZ7jGvzOTb8Egzc");
+            con.setRequestProperty("wx-token", NewScheduledTask.wxKeyValue);
 //            con.setRequestProperty("wx-token", "wuyGAAnCCGs-REeK0ke7_DFY3kJppwxL");
             con.setRequestProperty("referer", "https://servicewechat.com/wx42459a712712364c/1/page-frame.html");
             con.setRequestProperty("app-id", "mina");
@@ -226,6 +186,13 @@ public class NewScheduledTask {
                     "            \"price\": \"20.0\"\n" +
                     "        },\n" +
                     "        {\n" +
+                    "            \"site_id\": 2325880735662119,\n" +
+                    "            \"site_name\": \"羽毛球场地4\",\n" +
+                    "            \"start_time\": \"10:00\",\n" +
+                    "            \"end_time\": \"11:00\",\n" +
+                    "            \"price\": \"20.0\"\n" +
+                    "        },\n" +
+                    "        {\n" +
                     "            \"site_id\": 2325880735662120,\n" +
                     "            \"site_name\": \"羽毛球场地5\",\n" +
                     "            \"start_time\": \"08:00\",\n" +
@@ -233,7 +200,6 @@ public class NewScheduledTask {
                     "            \"price\": \"20.0\"\n" +
                     "        }\n" +
                     "    ]\n" +
-
                     "}";
             try (OutputStream os = con.getOutputStream()) {
                 byte[] input = requestBody.getBytes("utf-8");
