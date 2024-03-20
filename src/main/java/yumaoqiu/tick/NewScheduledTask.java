@@ -71,15 +71,15 @@ public class NewScheduledTask {
         NewScheduledTask.dateSite = dateSite;
     }
 
-        /**
-         * 每周四早晨6点执行curl请求抢周六三点到五点的羽毛球场地
-         *
-         * @author: winter
-         * @method: task
-         * @date: 2023/8/30 11:27 AM
-         * @return
-         */
-    @Scheduled(cron = "59 59 23 * * *", zone = "Asia/Shanghai")
+    /**
+     * 每周四早晨6点执行curl请求抢周六三点到五点的羽毛球场地
+     *
+     * @author: winter
+     * @method: task
+     * @date: 2023/8/30 11:27 AM
+     * @return
+     */
+    @Scheduled(cron = "59 59 23 * * 7", zone = "Asia/Shanghai")
     public void test() throws IOException {
         //  获取当前日期+2天
         String date3 = getDate7();
@@ -95,6 +95,23 @@ public class NewScheduledTask {
 
         log.info("========定时抢羽毛球场地 end==========");
     }
+
+    @Scheduled(cron = "59 59 23 * * 1-3", zone = "Asia/Shanghai")
+    public void morning() throws IOException {
+        //  获取当前日期+2天
+        String date3 = getDate7();
+        try{
+            Thread.sleep(900);
+        }catch (Exception e){
+            log.info("sleep error");
+        }
+        log.info("========定时抢羽毛球场地 begin==========");
+
+        getmorningMinipaystring("", date3);
+
+        log.info("========定时抢羽毛球场地 end==========");
+    }
+
 
     @Scheduled(cron = "00 50 05 * * 3", zone = "Asia/Shanghai")
     public void yure() {
@@ -212,6 +229,91 @@ public class NewScheduledTask {
         // 读取响应体
         try (BufferedReader in = new BufferedReader(new InputStreamReader(
                 responseCode >= 400 ? con.getErrorStream() : con.getInputStream()))) {
+            String inputLine;
+            StringBuilder response = new StringBuilder();
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            log.info("Response Body: " + response.toString());
+        }
+
+    }
+
+
+
+
+    public static void getmorningMinipaystring(String payje, String date) throws IOException {
+        String url = "https://stmember.styd.cn/v2/reserve/submit";
+        URL obj = new URL(url);
+        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+        // 设置请求方法为POST
+        con.setRequestMethod("POST");
+
+        // 设置请求头
+        con.setRequestProperty("Host", "stmember.styd.cn");
+        con.setRequestProperty("theme-compatible", "1");
+        con.setRequestProperty("brand-code", "DyKGrOyBKxD");
+        con.setRequestProperty("user-agent", "Mozilla/5.0 (Linux; U; Android 9; zh-cn; Redmi Note 5 Build/PKQ1.180904.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.141 Mobile Safari/537.36 XiaoMi/MiuiBrowser/11.10.8");
+        con.setRequestProperty("wx-token", NewScheduledTask.wxKeyValue);
+        //            con.setRequestProperty("wx-token", "wuyGAAnCCGs-REeK0ke7_DFY3kJppwxL");
+        con.setRequestProperty("referer", "https://servicewechat.com/wx42459a712712364c/1/page-frame.html");
+        con.setRequestProperty("app-id", "mina");
+        con.setRequestProperty("xweb_xhr", "1");
+        con.setRequestProperty("mina-version", "independent");
+        con.setRequestProperty("Content-Type", "application/json");
+        con.setRequestProperty("shop-id", "2312675187571576");
+        con.setRequestProperty("Accept", "*/*");
+        con.setRequestProperty("Sec-Fetch-Site", "cross-site");
+        con.setRequestProperty("Sec-Fetch-Mode", "cors");
+        con.setRequestProperty("Sec-Fetch-Dest", "empty");
+        con.setRequestProperty("Accept-Language", "zh-CN,zh");
+        con.setRequestProperty("Cookie", "acw_tc=2f624a7e17023700442751830e7818b1d3c669fbff2300bc763a0fd7b9ae5b");
+
+        // 启用输入流和输出流
+        con.setDoOutput(true);
+
+        // 设置请求体
+        String requestBody = "{\n" +
+            "    \"schedule_id\": 0,\n" +
+            "    \"coach_id\": 0,\n" +
+            "    \"course_id\": 0,\n" +
+            "    \"seat\": [],\n" +
+            "    \"consume_type\": \"wechat\",\n" +
+            "    \"consume_id\": \"wechat\",\n" +
+            "    \"current_reservation_num\": 1,\n" +
+            "    \"reserve_type\": \"venues\",\n" +
+            "    \"remark\": \"\",\n" +
+            "    \"venues_id\": \"2325874511315032\",\n" +
+            "    \"venues_date\":\"" + date + "\",\n" +
+            "    \"venues_site_time\": [\n" +
+            "        {\n" +
+            "            \"site_id\": 2325880735662119,\n" +
+            "            \"site_name\": \"羽毛球场地4\",\n" +
+            "            \"start_time\": \"08:00\",\n" +
+            "            \"end_time\": \"09:00\",\n" +
+            "            \"price\": \"20.0\"\n" +
+            "        },\n" +
+            "        {\n" +
+            "            \"site_id\": 2325880735662119,\n" +
+            "            \"site_name\": \"羽毛球场地4\",\n" +
+            "            \"start_time\": \"07:00\",\n" +
+            "            \"end_time\": \"08:00\",\n" +
+            "            \"price\": \"20.0\"\n" +
+            "        }\n" +
+            "    ]\n" +
+            "}";
+        try (OutputStream os = con.getOutputStream()) {
+            byte[] input = requestBody.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+
+        // 获取响应码
+        int responseCode = con.getResponseCode();
+        log.info("Response Code: " + responseCode);
+        // 读取响应体
+        try (BufferedReader in = new BufferedReader(new InputStreamReader(
+            responseCode >= 400 ? con.getErrorStream() : con.getInputStream()))) {
             String inputLine;
             StringBuilder response = new StringBuilder();
             while ((inputLine = in.readLine()) != null) {
