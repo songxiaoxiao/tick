@@ -79,7 +79,7 @@ public class NewScheduledTask {
      * @date: 2023/8/30 11:27 AM
      * @return
      */
-    @Scheduled(cron = "59 59 23 * * 7", zone = "Asia/Shanghai")
+    @Scheduled(cron = "59 59 23 * * 1,7,6", zone = "Asia/Shanghai")
     public void test() throws IOException {
         //  获取当前日期+2天
         String date3 = getDate7();
@@ -96,7 +96,7 @@ public class NewScheduledTask {
         log.info("========定时抢羽毛球场地 end==========");
     }
 
-    @Scheduled(cron = "59 59 23 * * 1-3", zone = "Asia/Shanghai")
+    @Scheduled(cron = "59 59 23 * * 2-5", zone = "Asia/Shanghai")
     public void morning() throws IOException {
         //  获取当前日期+2天
         String date3 = getDate7();
